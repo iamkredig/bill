@@ -29,7 +29,7 @@ body{
     height: 35vh;
     width: 35vw;
     overflow: hidden;
-    border: 7vh solid var(--login-color);
+    border: 5vh solid var(--login-color);
     border-radius: 4px;
 }
 
@@ -125,7 +125,6 @@ body.blocked{
 button{
     width: max-content;
     border-radius: 3px;
-    height: 50px;
     background: var(--login-color);
     margin-top: 20px;
     border: none;
