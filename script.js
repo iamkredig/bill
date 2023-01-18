@@ -23,7 +23,7 @@ PasswordInputField.addEventListener('keypress', function (e) {
         setTimeout(function(){
             body.classList.add("blocked");
 
-        }, 1); 
+        }, 70); 
         body.classList.remove("blocked");
     }
       
