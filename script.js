@@ -13,6 +13,8 @@ PasswordInputField = document.querySelector("#password-input")
 body = document.querySelector("body")
 welcome = document.querySelector(".welcome")
 
+getComputedStyle(document.documentElement).getPropertyValue('--login-color'); 
+
 PasswordInputField.addEventListener('keypress', function (e) {
     if (e.key === 'Enter' && PasswordInputField.value.toUpperCase() === "GRAVITY") {
         welcome.classList.add("active");
@@ -20,11 +22,18 @@ PasswordInputField.addEventListener('keypress', function (e) {
     }
     if (e.key === 'Enter' && PasswordInputField.value.toUpperCase() !== "GRAVITY") {
         welcome.classList.remove("active");
-        setTimeout(function(){
-            body.classList.add("blocked");
+        body.classList.add("blocked");
 
-        }, 70); 
-        body.classList.remove("blocked");
+        setTimeout(() => {document.documentElement.style.setProperty('--login-color', "#fb1e1e")}, 0);
+        setTimeout(() => {document.documentElement.style.setProperty('--login-color', "#5CFB1E")}, 233);
+        setTimeout(() => {document.documentElement.style.setProperty('--login-color', "#fb1e1e")}, 466);
+        setTimeout(() => {document.documentElement.style.setProperty('--login-color', "#5CFB1E")}, 700);
+    
     }
-      
 });
+
+PasswordInputField.addEventListener("input", function (e){
+    body.classList.remove("blocked");
+});
+
+

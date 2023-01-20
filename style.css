@@ -35,6 +35,13 @@ body{
 
 .enter-password{
     grid-row: 1;
+    display: block;
+}
+
+.wrong-password{
+    grid-row:1;
+    color: #fb1e1e;
+    display: none;
 }
 
 .password-field{
@@ -71,14 +78,15 @@ input:focus {
 }
 
 body.blocked{
-    animation: wrong-answer 0.7s;
+    animation: wrong-answer 0.7s ease;
 }
 
-@keyframes wrong-answer{
-    0% {--login-color:#5CFB1E;}
-   33%{--login-color:#fb1e1e;} 
-   66% {--login-color:#5CFB1E;} 
-   100% {--login-color:#fb1e1e;} 
+body.blocked .wrong-password{
+    display: block;
+}
+
+body.blocked .enter-password{
+    display: none;
 }
 
 .welcome{
@@ -87,38 +95,41 @@ body.blocked{
 }
 
 .welcome.active{
+
+    padding-bottom: 20px;
     display: block;
     pointer-events: all;
     position: fixed;
     z-index: 99;
-    width: 100%;
+    width: 100vw;
     height: 120vh;
-    animation: flyin 0.6s ease-in-out;
-    backdrop-filter: blur(20px);
-    display: grid;
-    grid-template-columns: 2fr 1fr;
+    animation: flyin 0.4s ease-in-out;
+    backdrop-filter: blur(30px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .gif{
     z-index: 99;
     margin-top: calc(var(--padding) * 1.5);
     margin-left:30px ;
-    grid-column: 2;
-    width: 120%;
+    width: 40vh;
 }
 
 .textholder{
-    grid-column: 1;
     z-index: 99;
     color: black;
-    margin-top: calc(var(--padding) * 2);
+
     margin-left:30px ;
     margin-right:30px ;
-    backdrop-filter: blur(20px);
-    font-size: 3.8vh;
+    font-size: 3vh;
+    height: auto;
+    text-align: center;
 }
 .inputwish{
-    font-size: 3vh; 
+    font-size: 2.8vh; 
     letter-spacing: normal;
 }
 
@@ -135,8 +146,8 @@ button{
 }
 
 @keyframes flyin {
-    0% {transform: translateY(-100%);}
-    100% {transform: translateY(0);}
+    0% {transform: scale(0);}
+    100% {transform: scale(1);}
 }
 
 @media (max-width: 800px) {
